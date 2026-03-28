@@ -44,7 +44,8 @@ export function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center">
-          <Link href="/" className="flex items-center gap-2 group">
+          {/* Logo */}
+          <Link href="/" className="flex items-center gap-2 group shrink-0">
             <div className="bg-primary text-primary-foreground p-1.5 rounded-sm group-hover:bg-accent transition-colors">
               <Feather className="w-5 h-5" />
             </div>
@@ -53,33 +54,36 @@ export function Navbar() {
             </span>
           </Link>
 
-          <nav className="hidden md:flex items-center gap-8">
+          {/* Desktop Navigation - FIXED */}
+          <div className="hidden md:flex items-center gap-6 lg:gap-8">
             {navLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
-                className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
+                className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors duration-200"
               >
                 {link.name}
               </a>
             ))}
-          </nav>
+          </div>
 
-          <div className="hidden md:flex items-center gap-4">
-            <button className="p-2 text-muted-foreground hover:text-primary rounded-full hover:bg-muted">
+          {/* Desktop Actions */}
+          <div className="hidden md:flex items-center gap-3 lg:gap-4">
+            <button className="p-2 text-muted-foreground hover:text-primary transition-colors rounded-full hover:bg-muted">
               <Search className="w-5 h-5" />
             </button>
             <button
               onClick={toggleTheme}
-              className="p-2 text-muted-foreground hover:text-primary rounded-full hover:bg-muted"
+              className="p-2 text-muted-foreground hover:text-primary transition-colors rounded-full hover:bg-muted"
             >
               {isDarkMode ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
             </button>
-            <button className="px-5 py-2.5 bg-foreground text-background font-medium text-sm rounded-sm hover:bg-primary transition-colors">
+            <button className="px-4 lg:px-5 py-2 lg:py-2.5 bg-foreground text-background font-medium text-sm rounded-sm hover:bg-primary transition-colors shadow-md hover:shadow-lg">
               Subscribe
             </button>
           </div>
 
+          {/* Mobile Menu Button */}
           <button
             className="md:hidden p-2 text-foreground"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -89,15 +93,16 @@ export function Navbar() {
         </div>
       </div>
 
+      {/* Mobile Menu */}
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-background border-b border-border"
+            className="md:hidden bg-background border-b border-border overflow-hidden"
           >
-            <div className="px-4 pt-2 pb-6 space-y-4">
+            <div className="px-4 pt-2 pb-6 space-y-3">
               {navLinks.map((link) => (
                 <a
                   key={link.name}
@@ -109,7 +114,10 @@ export function Navbar() {
                 </a>
               ))}
               <div className="pt-4 flex items-center justify-between border-t border-border">
-                <button onClick={toggleTheme} className="flex items-center gap-2 text-muted-foreground">
+                <button
+                  onClick={toggleTheme}
+                  className="flex items-center gap-2 text-muted-foreground"
+                >
                   {isDarkMode ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
                   <span>{isDarkMode ? 'Light Mode' : 'Dark Mode'}</span>
                 </button>
