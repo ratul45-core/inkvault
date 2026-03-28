@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { Helmet } from 'react-helmet-async';
-import { ArrowRight, ChevronRight, Mail, BookOpen, Star, ShieldCheck, TrendingUp } from 'lucide-react';
+
 import { Navbar } from '@/components/Navbar';
 import { Footer } from '@/components/Footer';
 import { AdSlot } from '@/components/AdSlot';
