@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { Helmet } from 'react-helmet-async';
-
+import { ArrowRight, Mail, BookOpen, Star, ShieldCheck, TrendingUp } from 'lucide-react';
 import { Navbar } from '@/components/Navbar';
 import { Footer } from '@/components/Footer';
 import { AdSlot } from '@/components/AdSlot';
@@ -83,7 +83,7 @@ export default function Home() {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {FEATURED_ARTICLES.map((article, index) => (
+              {FEATURED_ARTICLES.map((article) => (
                 <article key={article.id} className="group cursor-pointer flex flex-col h-full bg-card rounded-xl overflow-hidden border border-border shadow-sm hover:shadow-xl transition-all">
                   <div className="relative aspect-[4/3] overflow-hidden">
                     <div className="absolute top-4 left-4 z-20">
