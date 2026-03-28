@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 45 20% 98%;
+    --foreground: 220 15% 15%;
+    --primary: 340 55% 35%;
+    --primary-foreground: 45 20% 98%;
+    --secondary: 35 15% 88%;
+    --secondary-foreground: 220 15% 15%;
+    --muted: 35 10% 92%;
+    --muted-foreground: 220 10% 45%;
+    --accent: 38 80% 52%;
+    --accent-foreground: 220 15% 15%;
+    --border: 35 15% 85%;
+    --card: 0 0% 100%;
+    --card-foreground: 220 15% 15%;
+  }
+
+  .dark {
+    --background: 220 15% 10%;
+    --foreground: 45 20% 90%;
+    --primary: 340 50% 45%;
+    --primary-foreground: 45 20% 98%;
+    --secondary: 220 15% 20%;
+    --secondary-foreground: 45 20% 90%;
+    --muted: 220 15% 18%;
+    --muted-foreground: 220 10% 70%;
+    --accent: 38 80% 52%;
+    --accent-foreground: 220 15% 15%;
+    --border: 220 15% 25%;
+    --card: 220 15% 14%;
+    --card-foreground: 45 20% 90%;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    scroll-behavior: smooth;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display tracking-tight;
+  }
+}
+
+@layer components {
+  .container-custom {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+  
+  .ad-slot {
+    @apply relative border border-dashed border-border bg-muted/30 flex items-center justify-center overflow-hidden rounded-lg;
+  }
+  
+  .ad-slot::before {
+    content: "Advertisement";
+    @apply absolute top-1 right-2 text-[0.6rem] uppercase tracking-wider text-muted-foreground/60;
+  }
+}
